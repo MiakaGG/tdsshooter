@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 playerPos;
 
+    // lower = faster for fire rate so 0.1 will shoot really fast
+    public float fireRate = 0.5f;
+    private float nextFire = 0.0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,25 +37,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Fire1"))
+        // add timer to shoot statement
+        if(Input.GetButton("Fire1") && Time.time > nextFire)
         {
+            nextFire = Time.time + fireRate;
             Launch();
         }
 
-        playerPos = rb.position;
 
-        //Debug.Log("" + aimDir);
+        // makes sure we always have playerPos var assigned to rb position so we can track player
+        playerPos = rb.position;
     }
 
     void FixedUpdate()
     {
+        // lookToMouse function basically, maybe make it its own function?
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         aimDir = dir.normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         Vector2 inputMovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        //curVel = inputMovement * moveSpeed;
         rb.MovePosition(rb.position + inputMovement * Time.fixedDeltaTime * moveSpeed);
     }
 

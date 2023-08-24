@@ -40,10 +40,4 @@ public class EnemySpawner : MonoBehaviour
             EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
