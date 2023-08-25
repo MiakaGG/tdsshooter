@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7877023706499881615}
   - component: {fileID: 5976833845387481851}
   - component: {fileID: 5772251896771986922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -174,4 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e5276130838a841bc51ff6b5eb4533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCont: {fileID: 1427977393379038450, guid: 199c2f7703d1ef047940df150a823620, type: 3}
+  playerObj: {fileID: 1427977393379038450, guid: 199c2f7703d1ef047940df150a823620, type: 3}
+  enemyData: {fileID: 11400000, guid: aa9c9fc92fe6ece448a9553b64d43cd0, type: 2}
+  enemySpeed: 5
+  playerData: {fileID: 11400000, guid: 555f5025c39355540bdee4fb179a99e1, type: 2}

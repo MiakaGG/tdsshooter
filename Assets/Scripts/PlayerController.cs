@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 playerPos;
 
+    public PlayerData playerData;
+
     // lower = faster for fire rate so 0.1 will shoot really fast
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
@@ -37,6 +39,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerData.aimDir = aimDir;
+        playerData.moveSpeed = moveSpeed;
+        playerData.playerPos = playerPos;
+        playerData.fireRate = fireRate;
+        
         // add timer to shoot statement
         if(Input.GetButton("Fire1") && Time.time > nextFire)
         {
@@ -44,8 +51,6 @@ public class PlayerController : MonoBehaviour
             Launch();
         }
 
-
-        // makes sure we always have playerPos var assigned to rb position so we can track player
         playerPos = rb.position;
     }
 
@@ -75,6 +80,17 @@ public class PlayerController : MonoBehaviour
         {
             // Testing for losing health
             Debug.Log("Health - 1");
+        }
+
+        if (other.gameObject.tag == "fireRatePowerup")
+        {
+            Debug.Log("Hit Powerup");
+            fireRate = 0.1f;
+        }
+
+        if (other.gameObject.tag == "speedPowerup")
+        {
+            moveSpeed = 40f;
         }
     }
 }

@@ -7,14 +7,18 @@ public class EnemyController : MonoBehaviour
     // move towards player position 
     // if collides with player then player loses health or for now put debug log and enemy is destroyed
 
-    public GameObject playerCont;
+    public GameObject playerObj;
+
+    public EnemyData enemyData;
 
     private Vector3 target;
     private Vector3 position;
-    private float speed = 5f; 
+    public float enemySpeed = 5.0f; 
 
     Vector3 velocity;
     private float smoothTime = 0.5f;
+
+    public PlayerData playerData;
 
 
     // Start is called before the first frame update
@@ -22,18 +26,23 @@ public class EnemyController : MonoBehaviour
     {
     }
 
+    void Update()
+    {
+        enemyData.enemySpeed = enemySpeed;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         position = transform.position;
-        PlayerController playerC = playerCont.GetComponent<PlayerController>();
-        target = playerC.playerPos;
+        PlayerController playerC = playerObj.GetComponent<PlayerController>();
+        target = playerData.playerPos;
 
         if (target != position)
         {
-            float step = speed * Time.deltaTime;
+            float step = enemySpeed * Time.deltaTime;
             //transform.position = Vector2.MoveTowards(transform.position, target, step);
-            transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, speed);
+            transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, enemySpeed);
         }
     }
 
