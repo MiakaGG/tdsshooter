@@ -11,11 +11,16 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 spawnLoc3 = new Vector3(20f, 10f, 0f);
     private Vector3 spawnLoc4 = new Vector3 (-20f, 10f, 0f);    
 
+    public float enemyTimer = 2.0f;
+
+    public float nextSpawn = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
+
         // bottom left spawner
-        for(int i = 0; i < 3; i++)
+        /*for(int i = 0; i < 3; i++)
         {
             GameObject enemyObj = Instantiate(enemyPrefab, spawnLoc, transform.rotation);
             EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
@@ -38,6 +43,23 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject enemyObj = Instantiate(enemyPrefab, spawnLoc4, transform.rotation);
             EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
+        }*/
+    }
+
+    void Update()
+    {
+        Vector3 randSpawnLoc = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0);
+
+        if (Time.time > nextSpawn)
+        {
+            nextSpawn = Time.time + enemyTimer;
+            GameObject enemyObj = Instantiate(enemyPrefab, randSpawnLoc, transform.rotation);
+            EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
+        }
+
+        if (nextSpawn > 20f)
+        {
+            enemyTimer = 1f;
         }
     }
 }

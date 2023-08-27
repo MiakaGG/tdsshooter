@@ -6,8 +6,6 @@ public class Powerup : MonoBehaviour
 {
     public GameObject playerVar;
 
-    public EnemyData enemyData;
-
     void Start()
     {
         PlayerController playerC = playerVar.GetComponent<PlayerController>();
@@ -20,10 +18,5 @@ public class Powerup : MonoBehaviour
         {
             Destroy(this.gameObject);
         }   
-
-        if (other.gameObject.tag == "Enemy")
-        {
-            enemyData.enemySpeed = 0.1f;
-        }
     }
 }

@@ -14,10 +14,14 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public float moveSpeed = 20.0f;
+    public float moveSpeed;
 
     // gameObj for projectile prefab
     public GameObject projPrefab;
+
+    public GameObject enemyPrefab;
+
+    public EnemyController enemyS;
 
     private Vector2 inputMovement;
     private Vector3 dir;
@@ -27,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerData playerData;
 
+    public int score;
+
     // lower = faster for fire rate so 0.1 will shoot really fast
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
@@ -34,6 +40,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        EnemyController enemyS = enemyPrefab.GetComponent<EnemyController>();
     }
 
     // Update is called once per frame
@@ -43,6 +51,7 @@ public class PlayerController : MonoBehaviour
         playerData.moveSpeed = moveSpeed;
         playerData.playerPos = playerPos;
         playerData.fireRate = fireRate;
+        playerData.score = score;
         
         // add timer to shoot statement
         if(Input.GetButton("Fire1") && Time.time > nextFire)
@@ -90,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "speedPowerup")
         {
-            moveSpeed = 40f;
+            moveSpeed = 20f;
         }
     }
 }

@@ -174,9 +174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   projPrefab: {fileID: 3395629885122346470, guid: b3b98e7b5f2ef1d4eacb736237fefd0a, type: 3}
+  enemyPrefab: {fileID: 8245288669891399636, guid: de9f43a5e0408774da81bd84fa2c533a, type: 3}
   aimDir: {x: 0, y: 0}
   playerPos: {x: 0, y: 0, z: 0}
   playerData: {fileID: 11400000, guid: 555f5025c39355540bdee4fb179a99e1, type: 2}
+  enemyData: {fileID: 11400000, guid: aa9c9fc92fe6ece448a9553b64d43cd0, type: 2}
+  enemySpeed: 0
   fireRate: 0.5
 --- !u!1 &4469839327773050431
 GameObject:

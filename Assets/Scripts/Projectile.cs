@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
 
     public float projForce = 800;
 
+    public PlayerController playerCont;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -21,6 +23,11 @@ public class Projectile : MonoBehaviour
     {
         rigidbody2d.AddForce(direction * projForce);
     }
+
+    void Update()
+    {
+        PlayerController playerControl = playerCont.GetComponent<PlayerController>();
+    }
     void OnCollisionEnter2D(Collision2D other) 
     {
         Debug.Log("Proj collided with: " + other.collider.name);
@@ -28,6 +35,10 @@ public class Projectile : MonoBehaviour
         {
             //add player score here 
             Debug.Log("Proj hit enemy");
+
+            playerCont.score += 100;
+
+            Debug.Log("" + playerCont.score);
         }
 
         Destroy(gameObject);

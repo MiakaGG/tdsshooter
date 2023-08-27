@@ -9,8 +9,6 @@ public class EnemyController : MonoBehaviour
 
     public GameObject playerObj;
 
-    public EnemyData enemyData;
-
     private Vector3 target;
     private Vector3 position;
     public float enemySpeed = 5.0f; 
@@ -20,22 +18,10 @@ public class EnemyController : MonoBehaviour
 
     public PlayerData playerData;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        enemyData.enemySpeed = enemySpeed;
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         position = transform.position;
-        PlayerController playerC = playerObj.GetComponent<PlayerController>();
+        //PlayerController playerC = playerObj.GetComponent<PlayerController>();
         target = playerData.playerPos;
 
         if (target != position)

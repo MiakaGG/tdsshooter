@@ -162,7 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  collided: 0
   projForce: 800
-  playerObj: {fileID: 1427977393379038450, guid: 199c2f7703d1ef047940df150a823620, type: 3}
-  enemyObj: {fileID: 8245288669891399636, guid: de9f43a5e0408774da81bd84fa2c533a, type: 3}
+  playerCont: {fileID: 5802677025817357705, guid: 199c2f7703d1ef047940df150a823620, type: 3}

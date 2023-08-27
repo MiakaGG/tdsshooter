@@ -10,4 +10,6 @@ public class PlayerData : ScriptableObject {
     public Vector3 playerPos;
     public float fireRate;
 
+    public float score;
+
 }
