@@ -23,22 +23,16 @@ public class Projectile : MonoBehaviour
     {
         rigidbody2d.AddForce(direction * projForce);
     }
-
-    void Update()
-    {
-        PlayerController playerControl = playerCont.GetComponent<PlayerController>();
-    }
     void OnCollisionEnter2D(Collision2D other) 
     {
         Debug.Log("Proj collided with: " + other.collider.name);
         if (other.collider.tag == "Enemy")
         {
-            //add player score here 
-            Debug.Log("Proj hit enemy");
-
             playerCont.score += 100;
+            playerCont.gameScore += 100;
 
             Debug.Log("" + playerCont.score);
+            Debug.Log("" + playerCont.gameScore);
         }
 
         Destroy(gameObject);

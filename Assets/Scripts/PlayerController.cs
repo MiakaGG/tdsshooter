@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerData playerData;
 
-    public int score;
+    public int score = 0;
+
+    public int gameScore = 0;
 
     // lower = faster for fire rate so 0.1 will shoot really fast
     public float fireRate = 0.5f;
@@ -51,7 +53,6 @@ public class PlayerController : MonoBehaviour
         playerData.moveSpeed = moveSpeed;
         playerData.playerPos = playerPos;
         playerData.fireRate = fireRate;
-        playerData.score = score;
         
         // add timer to shoot statement
         if(Input.GetButton("Fire1") && Time.time > nextFire)
