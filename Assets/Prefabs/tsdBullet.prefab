@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 390085948583090093}
   - component: {fileID: 6169615891461971646}
   - component: {fileID: 4438021606304116034}
+  - component: {fileID: 2132137604642859241}
   m_Layer: 7
   m_Name: tsdBullet
   m_TagString: Projectile
@@ -164,3 +165,16 @@ MonoBehaviour:
   speed: 20
   projForce: 800
   playerCont: {fileID: 5802677025817357705, guid: 199c2f7703d1ef047940df150a823620, type: 3}
+--- !u!114 &2132137604642859241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3395629885122346470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d432f02bdc3ce147a988ad9ed0321bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: cec14e5bdc5fc6e489919e206944b97f, type: 3}

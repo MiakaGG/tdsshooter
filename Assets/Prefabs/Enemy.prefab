@@ -175,6 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 1427977393379038450, guid: 199c2f7703d1ef047940df150a823620, type: 3}
-  enemyData: {fileID: 11400000, guid: aa9c9fc92fe6ece448a9553b64d43cd0, type: 2}
+  _clip: {fileID: 8300000, guid: 948dcb30f202a6941a73327e8737dd1f, type: 3}
   enemySpeed: 5
   playerData: {fileID: 11400000, guid: 555f5025c39355540bdee4fb179a99e1, type: 2}

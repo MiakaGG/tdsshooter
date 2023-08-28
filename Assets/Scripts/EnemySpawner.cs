@@ -61,5 +61,10 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyTimer = 1f;
         }
+
+        if (nextSpawn > 35f)
+        {
+            enemyTimer = 0.5f;
+        }
     }
 }

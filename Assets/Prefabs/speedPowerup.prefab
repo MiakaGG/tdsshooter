@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2755191910542590710}
   - component: {fileID: 6280515021645293794}
   - component: {fileID: 3609258546645901632}
+  - component: {fileID: 8433039827359772950}
   m_Layer: 9
   m_Name: speedPowerup
   m_TagString: speedPowerup
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerVar: {fileID: 1427977393379038450, guid: 199c2f7703d1ef047940df150a823620, type: 3}
+--- !u!114 &8433039827359772950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359876266820965620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d432f02bdc3ce147a988ad9ed0321bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 7ee009533af56bb4f96dc94a43c11282, type: 3}

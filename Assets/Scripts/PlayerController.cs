@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour
 
     public int gameScore = 0;
 
+
+    // bool vars to check if player has hit powerup
+    public bool playerSpedUp;
+
+    public bool playerFireRateUp;
+
     // lower = faster for fire rate so 0.1 will shoot really fast
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
@@ -82,6 +88,7 @@ public class PlayerController : MonoBehaviour
         Projectile projectile = projectileObj.GetComponent<Projectile>();
 
         projectile.Launch(aimDir);
+
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -94,13 +101,16 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "fireRatePowerup")
         {
-            Debug.Log("Hit Powerup");
             fireRate = 0.1f;
+            playerFireRateUp = true;
+            Debug.Log("MoveSpeed: " + moveSpeed + "fireRate" + fireRate);
         }
 
         if (other.gameObject.tag == "speedPowerup")
         {
             moveSpeed = 20f;
-        }
+            playerSpedUp = true;
+            Debug.Log("MoveSpeed: " + moveSpeed + "fireRate" + fireRate);
+        } 
     }
 }

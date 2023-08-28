@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 
     public GameObject playerObj;
 
+    [SerializeField] private AudioClip _clip;
+
     private Vector3 target;
     private Vector3 position;
     public float enemySpeed = 5.0f; 
@@ -43,6 +45,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.tag == "Projectile")
         {
             Destroy(this.gameObject);
+            SoundManager.Instance.PlayMusic(_clip);
         }
     }
 }

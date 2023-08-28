@@ -25,7 +25,6 @@ public class Projectile : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other) 
     {
-        Debug.Log("Proj collided with: " + other.collider.name);
         if (other.collider.tag == "Enemy")
         {
             playerCont.score += 100;
