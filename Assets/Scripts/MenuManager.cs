@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-/*
+
 public class MenuManager : MonoBehaviour
 {
 
@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
 
     private void GameManagerOnGameStateChanged(GameState state)
     {
-        // mainMenuPanel.SetActive(state == GameState.SelectColor);
+        // mainMenuPanel.SetActive(state == GameState.MainMenu);
         throw new System.NotImplementedException();
     }
     // Start is called before the first frame update
@@ -34,4 +34,3 @@ public class MenuManager : MonoBehaviour
         
     }
 }
-*/
