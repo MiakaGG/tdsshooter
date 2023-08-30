@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.tag == "Projectile")
         {
             Destroy(this.gameObject);
-            SoundManager.Instance.PlayMusic(_clip);
+            SoundManager.Instance.PlaySound(_clip);
         }
     }
 }
