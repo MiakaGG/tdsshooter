@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
 {
 
     public GameObject enemyPrefab;
+
+    public PlayerController player;
     private Vector3 spawnLoc = new Vector3(-20f, -13f, 0);
     private Vector3 spawnLoc2 = new Vector3 (20f, -13f, 0f);
     private Vector3 spawnLoc3 = new Vector3(20f, 10f, 0f);
@@ -15,42 +17,11 @@ public class EnemySpawner : MonoBehaviour
 
     public float nextSpawn = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        // bottom left spawner
-        /*for(int i = 0; i < 3; i++)
-        {
-            GameObject enemyObj = Instantiate(enemyPrefab, spawnLoc, transform.rotation);
-            EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
-        }
-
-        // bottom right spawner
-        for(int i = 0; i < 3; i++)
-        {
-            GameObject enemyObj = Instantiate(enemyPrefab, spawnLoc2, transform.rotation);
-            EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
-        }
-        // top right spawner
-        for(int i = 0; i < 3; i++)
-        {
-            GameObject enemyObj = Instantiate(enemyPrefab, spawnLoc3, transform.rotation);
-            EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
-        }
-        // top left spawner 
-        for(int i = 0; i < 3; i++)
-        {
-            GameObject enemyObj = Instantiate(enemyPrefab, spawnLoc4, transform.rotation);
-            EnemyController enemyT = enemyObj.GetComponent<EnemyController>();
-        }*/
-    }
-
     void Update()
     {
         Vector3 randSpawnLoc = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), 0);
 
-        if (Time.time > nextSpawn)
+        if (Time.time > nextSpawn && randSpawnLoc != player.playerPos)
         {
             nextSpawn = Time.time + enemyTimer;
             GameObject enemyObj = Instantiate(enemyPrefab, randSpawnLoc, transform.rotation);

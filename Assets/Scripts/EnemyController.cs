@@ -23,13 +23,11 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         position = transform.position;
-        //PlayerController playerC = playerObj.GetComponent<PlayerController>();
         target = playerData.playerPos;
 
         if (target != position)
         {
             float step = enemySpeed * Time.deltaTime;
-            //transform.position = Vector2.MoveTowards(transform.position, target, step);
             transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, enemySpeed);
         }
     }
@@ -38,7 +36,6 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Hit Player!");
             Destroy(this.gameObject);
         }
 

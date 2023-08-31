@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public GameState State;
 
+    public PlayerController player;
+
     public static event Action<GameState> OnGameStateChanged;
 
     void Awake()
@@ -21,6 +23,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateGameState(GameState.MainMenu);
+
+        player.score = 0;
+        player.health = 3;
     }
 
     public void UpdateGameState(GameState newState)
@@ -41,6 +46,12 @@ public class GameManager : MonoBehaviour
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    // TESTING FOR PLAYER.HEALTH
+    public void playerLoseHealth(float value)
+    {
+        player.health = player.health - 1;
     }
 }
 

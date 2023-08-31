@@ -1,17 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-
-    // player movement 
-    // player lookAtMouse
-    // player shoot?
-    // projectile code 
-    // instantiate and what not 
-    // DONE!!!!
-
     private Rigidbody2D rb;
 
     public float moveSpeed;
@@ -20,9 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject projPrefab;
 
     public GameObject enemyPrefab;
-
-    public EnemyController enemyS;
-
+    
+    // movement vars
     private Vector2 inputMovement;
     private Vector3 dir;
     public Vector2 aimDir;
@@ -31,15 +23,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerData playerData;
 
+    public int health = 3;
+
     public int score = 0;
-
-    public int gameScore = 0;
-
-
-    // bool vars to check if player has hit powerup
-    public bool playerSpedUp;
-
-    public bool playerFireRateUp;
 
     // lower = faster for fire rate so 0.1 will shoot really fast
     public float fireRate = 0.5f;
@@ -65,6 +51,11 @@ public class PlayerController : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Launch();
+        }
+
+        if (Input.GetButton("Cancel"))
+        {
+            Application.Quit();
         }
 
         playerPos = rb.position;
@@ -96,21 +87,23 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             // Testing for losing health
-            Debug.Log("Health - 1");
+            Debug.Log(health);
+            playerLoseHealth();
         }
 
         if (other.gameObject.tag == "fireRatePowerup")
         {
             fireRate = 0.1f;
-            playerFireRateUp = true;
-            Debug.Log("MoveSpeed: " + moveSpeed + "fireRate" + fireRate);
         }
 
         if (other.gameObject.tag == "speedPowerup")
         {
-            moveSpeed = 20f;
-            playerSpedUp = true;
-            Debug.Log("MoveSpeed: " + moveSpeed + "fireRate" + fireRate);
+            moveSpeed = 15f;
         } 
+    }
+    
+    public void playerLoseHealth()
+    {
+        health = health - 1;
     }
 }

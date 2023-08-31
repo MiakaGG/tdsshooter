@@ -28,10 +28,8 @@ public class Projectile : MonoBehaviour
         if (other.collider.tag == "Enemy")
         {
             playerCont.score += 100;
-            playerCont.gameScore += 100;
 
             Debug.Log("" + playerCont.score);
-            Debug.Log("" + playerCont.gameScore);
         }
 
         Destroy(gameObject);
