@@ -5,6 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    // Look at player controller to see what needs to be optimized
     private Rigidbody2D rb;
 
     public float moveSpeed;
